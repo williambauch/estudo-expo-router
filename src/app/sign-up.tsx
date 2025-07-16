@@ -4,7 +4,11 @@ import { Link, router } from "expo-router";
 export default function SignUp() {
 
   function goBack() {
-    router.back();
+    if(!router.canGoBack()) {
+      router.navigate("/");
+    } else {
+      router.back();
+    }
   }
   return (
     <View style={styles.container}>   
