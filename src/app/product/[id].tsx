@@ -1,9 +1,9 @@
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
 
-export default function SignUp() {
+export default function Product() {
 
-  const { name } = useLocalSearchParams()
+  const { id } = useLocalSearchParams()
 
   function goBack() {
     if (!router.canGoBack()) {
@@ -14,7 +14,7 @@ export default function SignUp() {
   }
   return (
     <View style={styles.container}>
-      <Text>{name}</Text>
+      <Text>Código do Produto é {id}</Text>
 
       <TouchableOpacity onPress={goBack}>
         <Text style={styles.back}>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#CECECE",
+    backgroundColor: "#CCCCCC",
     gap: 32
   },
   back: {
