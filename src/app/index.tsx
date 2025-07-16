@@ -1,17 +1,22 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { router, Link } from "expo-router";
-import { DrawerToggleButton } from "@react-navigation/drawer"
+
 
 export default function Index() {
 
     function signUp() {
-        router.navigate("/sign-up");
+        router.navigate("/sign-up")
+    }
+    function signIn() {
+        router.navigate('/(drawer)')
     }
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <DrawerToggleButton></DrawerToggleButton>
-            </View>
+
+            <TouchableOpacity style={styles.button} onPress={signIn}>
+                <Text style={styles.label}>Entrar</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button} onPress={signUp}>
                 <Text style={styles.label}>Criar Conta</Text>
             </TouchableOpacity>
@@ -29,7 +34,7 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 32,
+        justifyContent: "center",
         alignItems: "center",
         gap: 32
     },
@@ -43,10 +48,5 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         paddingVertical: 10,
         borderRadius: 5,
-    },
-    header: {
-        flexDirection: "row",
-        width: "100%",
-        justifyContent: "flex-end",
     }
 });
