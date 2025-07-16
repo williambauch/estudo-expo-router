@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { router, Link } from "expo-router";
+import { DrawerToggleButton } from "@react-navigation/drawer"
 
 export default function Index() {
 
@@ -7,17 +8,20 @@ export default function Index() {
         router.navigate("/sign-up");
     }
     return (
-        <View style={styles.container}>    
-                <TouchableOpacity style={styles.button} onPress={signUp}>
-                    <Text style={styles.label}>Criar Conta</Text>
-                </TouchableOpacity>     
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <DrawerToggleButton></DrawerToggleButton>
+            </View>
+            <TouchableOpacity style={styles.button} onPress={signUp}>
+                <Text style={styles.label}>Criar Conta</Text>
+            </TouchableOpacity>
 
-                <Link href={ {pathname: "/sign-up", params: { name: "William Bauch"} }}> Enviar Paramentros</Link>
+            <Link href={{ pathname: "/sign-up", params: { name: "William Bauch" } }}> Enviar Paramentros</Link>
 
-                <Link href={{ pathname: "/product/[id]", params: { id: "32" } }}> Abrir Produto</Link>
+            <Link href={{ pathname: "/product/[id]", params: { id: "32" } }}> Abrir Produto</Link>
 
-                <Link href={{ pathname: "/home", params: { id: "" } }}> Ir para a Home</Link>
- 
+            <Link href={{ pathname: "/home", params: { id: "" } }}> Ir para a Home</Link>
+
         </View>
     );
 }
@@ -25,7 +29,7 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        padding: 32,
         alignItems: "center",
         gap: 32
     },
@@ -40,4 +44,9 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 5,
     },
+    header: {
+        flexDirection: "row",
+        width: "100%",
+        justifyContent: "flex-end",
+    }
 });

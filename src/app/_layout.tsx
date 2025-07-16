@@ -7,7 +7,8 @@ export default function Layout() {
         <GestureHandlerRootView style={{ flex: 1 }}>
             <Drawer screenOptions={{
                 drawerActiveTintColor: "#000",
-                drawerInactiveTintColor: "#999"
+                drawerInactiveTintColor: "#999",
+                headerShown: false
             }}>
                 <Drawer.Screen
                     name="index"
